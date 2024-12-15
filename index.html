@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaliaHost - Ultimate Game Server Hosting</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" type="x-icon" href="cloud-server.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+        :root {
+            --primary-dark: #0a0a1a;
+            --secondary-blue: #00bfff;
+            --accent-blue: #0066cc;
+        }
+
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: var(--secondary-blue) var(--primary-dark);
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--primary-dark), #121229);
+            font-family: 'Roboto', sans-serif;
+            color: #e0e0ff;
+            overflow-x: hidden;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(10, 10, 26, 0.8), rgba(10, 10, 26, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect width="100%" height="100%" fill="%230a0a1a"/><g fill="rgba(0,191,255,0.05)"><circle cx="50%" cy="50%" r="300"/><circle cx="20%" cy="20%" r="250"/><circle cx="80%" cy="80%" r="200"/></g></svg>');
+            background-blend-mode: overlay;
+        }
+
+        .glitch-text {
+            position: relative;
+            color: var(--secondary-blue);
+            text-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+        }
+
+        .glitch-text::before,
+        .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.8;
+        }
+
+        .glitch-text::before {
+            left: 2px;
+            text-shadow: -2px 0 red;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+
+        .glitch-text::after {
+            left: -2px;
+            text-shadow: -2px 0 blue;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim2 5s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% {
+                clip: rect(35px, 9999px, 44px, 0);
+            }
+            25% {
+                clip: rect(56px, 9999px, 76px, 0);
+            }
+            50% {
+                clip: rect(12px, 9999px, 34px, 0);
+            }
+            75% {
+                clip: rect(67px, 9999px, 89px, 0);
+            }
+            100% {
+                clip: rect(23px, 9999px, 45px, 0);
+            }
+        }
+
+        @keyframes glitch-anim2 {
+            0% {
+                clip: rect(65px, 9999px, 75px, 0);
+            }
+            25% {
+                clip: rect(12px, 9999px, 34px, 0);
+            }
+            50% {
+                clip: rect(45px, 9999px, 56px, 0);
+            }
+            75% {
+                clip: rect(23px, 9999px, 45px, 0);
+            }
+            100% {
+                clip: rect(89px, 9999px, 98px, 0);
+            }
+        }
+
+        .server-btn {
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #003366, var(--accent-blue));
+            box-shadow: 0 4px 15px rgba(0, 102, 204, 0.4);
+        }
+
+        .server-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 102, 204, 0.6);
+        }
+
+        .feature-card {
+            transition: all 0.4s ease;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 191, 255, 0.2);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 191, 255, 0.3);
+        }
+
+        .pricing-card {
+            transition: all 0.4s ease;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 191, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 191, 255, 0.3);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-black bg-opacity-70 backdrop-blur-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="text-2xl font-bold text-blue-400 glitch-text" data-text="ATLASNET">ATLASNET</div>
+            <div class="space-x-6">
+                <a href="#" class="text-blue-300 hover:text-blue-500 transition">Home</a>
+                <a href="#services" class="text-blue-300 hover:text-blue-500 transition">Services</a>
+                <a href="#pricing" class="text-blue-300 hover:text-blue-500 transition">Pricing</a>
+                <a href="https://discord.gg/zh4nrZuEtr" target="_blank" class="text-blue-300 hover:text-blue-500 transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section min-h-screen flex items-center justify-center text-center pt-16">
+        <div class="container mx-auto px-4">
+            <h1 class="text-7xl font-bold mb-6 glitch-text" data-text="ATLASNET">ATLASNET</h1>
+            <p class="text-2xl text-blue-300 mb-10">
+                Ultimate Game Server Hosting - Unparalleled Performance & Reliability
+            </p>
+            <div class="flex justify-center space-x-6">
+                <a href="https://panel.atlasnet.ma/" target="_blank" class="server-btn text-white px-10 py-4 rounded-full text-xl font-bold">
+                    <i class="fas fa-gamepad mr-2"></i>Game Panel
+                </a>
+                <a href="https://discord.gg/zh4nrZuEtr" target="_blank" class="server-btn text-white px-10 py-4 rounded-full text-xl font-bold">
+                    <i class="fab fa-discord mr-2"></i>Discord
+                </a>
+                <a href="https://php.atlasnet.ma/phpmyadmin/" target="_blank" class="server-btn text-white px-10 py-4 rounded-full text-xl font-bold">
+                    <i class="fas fa-gamepad mr-2"></i>PhpMyAdmin
+                </a>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-opacity-10 bg-blue-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl text-center mb-12 text-blue-300">Pricing Plans</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Multi Theft Auto -->
+                <div class="pricing-card text-center">
+                    <h3 class="text-2xl mb-4 text-blue-300">Multi Theft Auto</h3>
+                    <div id="mta-plans" class="hidden">
+                        <div class="plan">
+                            <h4 class="text-xl mb-2 text-blue-300">Plan 1</h4>
+                            <p>$1 USD / 15 MAD</p>
+                        </div>
+                        <div class="plan">
+                            <h4 class="text-xl mb-2 text-blue-300">Plan 2</h4>
+                            <p>$2.5 USD / 30 MAD</p>
+                        </div>
+                        <div class="plan">
+                            <h4 class="text-xl mb-2 text-blue-300">Plan 3</h4>
+                            <p>$4 USD / 45 MAD</p>
+                        </div>
+                    </div>
+                    <button onclick="togglePlans('mta-plans')" class="server-btn text-white px-6 py-2 rounded-full text-lg font-bold mt-4">View Plans</button>
+                </div>
+
+                <!-- CS 1.6 -->
+                <div class="pricing-card text-center">
+                    <h3 class="text-2xl mb-4 text-blue-300">CS 1.6</h3>
+                    <div id="cs16-plans" class="hidden">
+                        <div class="plan">
+                            <h4 class="text-xl mb-2 text-blue-300">Plan 1</h4>
+                            <p>$1 USD / 15 MAD</p>
+                        </div>
+                        <div class="plan">
+                            <h4 class="text-xl mb-2 text-blue-300">Plan 2</h4>
+                            <p>$2.5 USD / 30 MAD</p>
+                        </div>
+                        <div class="plan">
+                            <h4 class="text-xl mb-2 text-blue-300">Plan 3</h4>
+                            <p>$4 USD / 45 MAD</p>
+                        </div>
+                    </div>
+                    <button onclick="togglePlans('cs16-plans')" class="server-btn text-white px-6 py-2 rounded-full text-lg font-bold mt-4">View Plans</button>
+                </div>
+
+                <!-- SAMP -->
+                <div class="pricing-card text-center">
+                    <h3 class="text-2xl mb-4 text-blue-300">SAMP</h3>
+                    <div id="samp-plans" class="hidden">
+                        <div class="plan">
+                            <h4 class="text-xl mb-2 text-blue-300">Plan 1</h4>
+                            <p>$1 USD / 15 MAD</p>
+                        </div>
+                        <div class="plan">
+                            <h4 class="text-xl mb-2 text-blue-300">Plan 2</h4>
+                            <p>$2.5 USD / 30 MAD</p>
+                        </div>
+                        <div class="plan">
+                            <h4 class="text-xl mb-2 text-blue-300">Plan 3</h4>
+                            <p>$4 USD / 45 MAD</p>
+                        </div>
+                    </div>
+                    <button onclick="togglePlans('samp-plans')" class="server-btn text-white px-6 py-2 rounded-full text-lg font-bold mt-4">View Plans</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="services" class="py-20 bg-opacity-10 bg-blue-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl text-center mb-12 text-blue-300">Our Services</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature Card 1 -->
+                <div class="feature-card p-6 rounded-xl text-center">
+                    <i class="fas fa-server text-5xl text-blue-400 mb-4"></i>
+                    <h3 class="text-2xl mb-4 text-blue-300">High Performance Servers</h3>
+                    <p class="text-gray-300">Cutting-edge hardware with low latency and maximum uptime.</p>
+                </div>
+
+                <!-- Feature Card 2 -->
+                <div class="feature-card p-6 rounded-xl text-center">
+                    <i class="fas fa-microchip text-5xl text-blue-400 mb-4"></i>
+                    <h3 class="text-2xl mb-4 text-blue-300">Advanced Infrastructure</h3>
+                    <p class="text-gray-300">Global data centers with top-tier network connectivity.</p>
+                </div>
+
+                <!-- Feature Card 3 -->
+                <div class="feature-card p-6 rounded-xl text-center">
+                    <i class="fas fa-shield-alt text-5xl text-blue-400 mb-4"></i>
+                    <h3 class="text-2xl mb-4 text-blue-300">DDoS Protection</h3>
+                    <p class="text-gray-300">Robust security measures to keep your game servers safe.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-10">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-blue-300">&copy; 2024 MaliaHost. All Rights Reserved.</p>
+            <div class="mt-4 space-x-4">
+                <a href="https://discord.gg/zh4nrZuEtr" target="_blank" class="text-blue-400 hover:text-blue-600"><i class="fab fa-discord"></i></a>
+
+                <a href="https://www.instagram.com/h1rmnx" target="_blank" class="text-blue-400 hover:text-blue-600"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        function togglePlans(id) {
+            const plans = document.getElementById(id);
+            plans.classList.toggle('hidden');
+        }
+    </script>
+
+    <script>
+        (function() {
+            function c() {
+                var b = a.contentDocument || a.contentWindow.document;
+                if (b) {
+                    var d = b.createElement('script');
+                    d.innerHTML = "window.__CF$cv$params={r:'8f2522896ebce181',t:'MTczNDI1MjA5MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+                    b.getElementsByTagName('head')[0].appendChild(d)
+                }
+            }
+            if (document.body) {
+                var a = document.createElement('iframe');
+                a.height = 1;
+                a.width = 1;
+                a.style.position = 'absolute';
+                a.style.top = 0;
+                a.style.left = 0;
+                a.style.border = 'none';
+                a.style.visibility = 'hidden';
+                document.body.appendChild(a);
+                if ('loading' !== document.readyState) c();
+                else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c);
+                else {
+                    var e = document.onreadystatechange || function() {};
+                    document.onreadystatechange = function(b) {
+                        e(b);
+                        'loading' !== document.readyState && (document.onreadystatechange = e, c())
+                    }
+                }
+            }
+        })();
+    </script>
+</body>
+
+</html>
